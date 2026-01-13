@@ -1,4 +1,44 @@
 const targetBalance = 12000;
+const API = "http://127.0.0.1:5000";
+
+function carregar() {
+    fetch(API + "/list")
+    .then(r => r.json())
+    .then(data => {
+        document.getElementById("balanceDisplay").innerText = "R$ " + data.saldo.toFixed(2);
+
+        const list = document.getElementById("historyList");
+        list.innerHTML = "";
+
+        data.historico.forEach(item => {
+            const li = document.createElement("li");
+            li.innerText = (item.type === "add" ? "+ " : "- ") + "R$ " + item.amount.toFixed(2);
+            list.appendChild(li);
+        });
+    });
+}
+
+document.getElementById("btnAdd").onclick = () => {
+    enviar("add");
+};
+
+document.getElementById("btnSub").onclick = () => {
+    enviar("sub");
+};
+
+function enviar(tipo) {
+    const valor = parseFloat(document.getElementById("amountInput").value);
+
+    fetch(API + "/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: valor, type: tipo })
+    })
+    .then(() => carregar());
+}
+
+carregar();
+
 
 // Carregar dados salvos ou iniciar vazio
 let currentBalance = parseFloat(localStorage.getItem("saldo")) || 0;
