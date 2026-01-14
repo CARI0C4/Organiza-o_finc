@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="/back/static/css/style.css">
 </head>
-<body>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; background: #f5f6fa;">
 
-    <div class="modal-content" style="max-width: 350px; margin: 100px auto;">
-        <h2 style="color: #2f3640;">Login</h2>
+    <div class="modal-content" style="max-width: 350px; padding: 40px;">
+        <h2 style="color: #2f3640; margin-top: 0;">Acesso Restrito</h2>
 
-        <input id="user" placeholder="Usuário" style="margin-bottom: 10px;">
-        <input id="pass" type="password" placeholder="Senha" style="margin-bottom: 20px;">
+        <input id="user" placeholder="Usuário" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <input id="pass" type="password" placeholder="Senha" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;">
 
-        <button onclick="login()" class="btn-add">Entrar</button>
+        <button onclick="login()" class="btn-add" style="width: 100%; cursor: pointer;">Entrar</button>
 
-        <p id="msg" style="margin-top: 15px; color: #e84118; font-weight: bold;"></p>
+        <p id="msg" style="margin-top: 15px; color: #e84118; font-weight: bold; min-height: 20px;"></p>
     </div>
-
+    <script type="module" src="/back/static/js/login.js"></script>
     <script src="{{ url_for('static', filename='js/login.js') }}"></script>
 
 </body>
