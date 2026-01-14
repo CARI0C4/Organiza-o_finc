@@ -1,5 +1,6 @@
 function login() {
-    fetch("http://127.0.0.1:5000/login", {
+    // Usa a URL do Render
+    fetch("https://organiza-finance.onrender.com/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -13,7 +14,8 @@ function login() {
     .then(data => {
         if (data.success) {
             localStorage.setItem("logado", "true");
-            window.location.href = "index.html";
+            // Redireciona para a rota raiz "/" (que é o index.html servido pelo Flask)
+            window.location.href = "/";
         } else {
             document.getElementById("msg").innerText = "Usuário ou senha inválidos";
         }
