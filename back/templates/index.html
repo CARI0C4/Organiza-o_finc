@@ -8,10 +8,9 @@
 </head>
 
 <script>
-// Verifica se está logado
-if (!localStorage.getItem("logado")) {
-    window.location.href = "/login-page";
-}
+    if (!localStorage.getItem("logado")) {
+        window.location.href = "/login-page";
+    }
 </script>
 
 <body>
@@ -26,7 +25,6 @@ if (!localStorage.getItem("logado")) {
 </div>
 
 <div class="app-layout">
-
     <div class="left-panel">
         <div class="progress-section">
             <div class="progress-labels">
@@ -55,16 +53,13 @@ if (!localStorage.getItem("logado")) {
         <button class="btn-add" id="btnAdd">+ Adicionar</button>
         <button class="btn-sub" id="btnSub">- Subtrair</button>
     </div>
-
 </div>
 
 <div id="modalSub" class="modal-overlay hidden">
     <div class="modal-content">
         <h3>Motivo da Retirada</h3>
         <p>Para onde foi esse dinheiro?</p>
-        
         <input type="text" id="modalReasonInput" placeholder="Ex: Conta de Luz, Mercado..." autocomplete="off">
-        
         <div class="modal-actions">
             <button id="btnCancelModal" class="btn-cancel">Cancelar</button>
             <button id="btnConfirmModal" class="btn-confirm">Confirmar Saída</button>
@@ -76,7 +71,6 @@ if (!localStorage.getItem("logado")) {
     <div class="modal-content">
         <h3 style="color: #e84118;">⚠️ Atenção</h3>
         <p id="errorMessage">Algo deu errado!</p>
-        
         <div class="modal-actions">
             <button id="btnErrorOk" class="btn-confirm" style="width: 100%;">Entendido</button>
         </div>
